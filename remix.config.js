@@ -9,6 +9,13 @@ const baseConfig =
  */
 module.exports = {
   ...baseConfig,
+  future: {
+    v2_normalizeFormMethod: true,
+    v2_errorBoundary: true,
+    // v2_meta: true,
+    v2_routeConvention: true,
+    serverModuleFormat: "esm",
+  },
   // This works out of the box with the Netlify adapter, but you can
   // add your own custom config here if you want to.
   //

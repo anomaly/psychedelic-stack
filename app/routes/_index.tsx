@@ -1,3 +1,11 @@
+
+import type {
+  V2_MetaFunction
+} from "@remix-run/node";
+import {
+  json
+} from "@remix-run/node";
+
 export function headers({
   loaderHeaders,
   parentHeaders,
@@ -14,6 +22,17 @@ export function headers({
     "Cache-Control": "public, max-age=60, s-maxage=60",
   };
 }
+
+// export const meta: V2_MetaFunction = () => {
+//   return [
+//     { title: "Very cool app | Remix" },
+//   ];
+// };
+
+export async function loader() {
+  return json({ message: "Hello World" });
+}
+
 
 export default function Index() {
   return (

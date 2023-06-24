@@ -5,3 +5,9 @@ publish = "public"
 [dev]
 command = "npm run dev"
 targetPort = 3000
+
+[[redirects]]
+from = "/api/*"
+to = "http://localhost:8000/:splat"
+status = 200
+headers = { X-From = "Netlify" }
