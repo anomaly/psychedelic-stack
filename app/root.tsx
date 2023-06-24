@@ -1,4 +1,8 @@
-import type { MetaFunction } from "@netlify/remix-runtime";
+import type {
+  LinksFunction,
+  MetaFunction
+} from "@netlify/remix-runtime";
+
 import {
   Links,
   LiveReload,
@@ -8,11 +12,28 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
-export const meta: MetaFunction = () => ({
-  charset: "utf-8",
-  title: "New Remix App",
-  viewport: "width=device-width,initial-scale=1",
-});
+import stylesheet from "~/tailwind.css";
+
+
+/**
+ * Links the Tailwind stylesheet
+ * @returns Array
+ */
+export const links: LinksFunction = () => [
+  { rel: "stylesheet", href: stylesheet },
+];
+
+export const meta: V2_MetaFunction = () => {
+  return [
+    {
+      name: "viewport",
+      content: "width=device-width,initial-scale=1",
+    },
+    { title: "New Remix App" },
+  ];
+};
+
+
 
 export default function App() {
   return (

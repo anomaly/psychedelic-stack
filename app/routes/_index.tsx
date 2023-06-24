@@ -23,11 +23,11 @@ export function headers({
   };
 }
 
-// export const meta: V2_MetaFunction = () => {
-//   return [
-//     { title: "Very cool app | Remix" },
-//   ];
-// };
+export const meta: V2_MetaFunction = () => {
+  return [
+    { title: "Very cool app | Remix" },
+  ];
+};
 
 export async function loader() {
   return json({ message: "Hello World" });
@@ -36,8 +36,8 @@ export async function loader() {
 
 export default function Index() {
   return (
-    <main style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
-      <h1>Welcome to Remix</h1>
+    <main>
+      <h1 className="text-2xl">Welcome to Remix</h1>
       <ul>
         <li>
           <a
