@@ -1,6 +1,8 @@
 
 import type {
-  V2_MetaFunction
+  V2_MetaFunction,
+  LoaderFunction,
+  LoaderArgs
 } from "@remix-run/node";
 import {
   json
@@ -29,7 +31,7 @@ export const meta: V2_MetaFunction = () => {
   ];
 };
 
-export async function loader() {
+export const loader: LoaderFunction = async ({ request }: LoaderArgs) => {
   return json({ message: "Hello World" });
 }
 

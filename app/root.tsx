@@ -1,6 +1,6 @@
 import type {
   LinksFunction,
-  MetaFunction
+  V2_MetaFunction,
 } from "@netlify/remix-runtime";
 
 import {
