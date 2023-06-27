@@ -9,12 +9,13 @@ const baseConfig =
  */
 module.exports = {
   ...baseConfig,
+  // serverModuleFormat: "esm",
   future: {
     v2_normalizeFormMethod: true,
     v2_errorBoundary: true,
     v2_meta: true,
+    v2_headers: true,
     v2_routeConvention: true,
-    serverModuleFormat: "esm",
   },
   tailwind: true
   // This works out of the box with the Netlify adapter, but you can
@@ -22,3 +23,8 @@ module.exports = {
   //
   // See https://remix.run/docs/en/v1/file-conventions/remix-config
 };
+
+
+// Read this before enabling serviceModuleFormat: esm
+// https://remix.run/docs/en/main/pages/gotchas#importing-esm-packages
+// https://github.com/remix-run/remix/issues/109
