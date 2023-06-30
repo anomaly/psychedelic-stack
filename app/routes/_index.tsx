@@ -31,9 +31,9 @@ export const meta: V2_MetaFunction = () => {
   ];
 };
 
-// export const loader: LoaderFunction = async ({ request }: LoaderArgs) => {
-//   return json({ message: "Hello World" });
-// }
+export const loader: LoaderFunction = async ({ request }: LoaderArgs) => {
+  return json({ message: "Hello World" });
+}
 
 
 export default function Index() {
