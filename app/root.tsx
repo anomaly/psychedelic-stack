@@ -1,7 +1,7 @@
 import type {
   LinksFunction,
   V2_MetaFunction,
-} from "@netlify/remix-runtime";
+} from "@remix-run/deno";
 
 import {
   Links,

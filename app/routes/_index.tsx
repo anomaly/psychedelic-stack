@@ -3,10 +3,10 @@ import type {
   V2_MetaFunction,
   LoaderFunction,
   LoaderArgs
-} from "@remix-run/node";
+} from "@remix-run/deno";
 import {
   json
-} from "@remix-run/node";
+} from "@remix-run/deno";
 
 export function headers({
   loaderHeaders,
