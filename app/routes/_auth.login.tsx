@@ -91,13 +91,13 @@ export const action: ActionFunction = async ({ request }: ActionArgs) => {
         // If we require to extract the error message from the response
         const axiosError = error as AxiosError;
         // Nullify the token if there was one
-        console.log(axiosError.response?.data);
         session.set("token", null);
         // We intend to carry this over to the loader
         session.flash("error", "Invalid username or password");
         return json({
             globalError: "Invalid username or password",
         }, {
+            status: 400,
             headers: {
                 "Set-Cookie": await commitSession(session),
             },
@@ -131,13 +131,13 @@ export const meta: V2_MetaFunction = () => {
 export default function Auth() {
 
     const { message } = useLoaderData<typeof loader>();
-    const data = useActionData<typeof action>();
+    const actionData = useActionData<typeof action>();
 
     return (
         <div>
             <h1 className="text-2xl">Login to our app</h1>
             <ValidatedForm validator={LoginSchema} method="POST">
-                <input type="hidden" name="redirectTo" />
+                <input type="hidden" name="redirectTo" value="/admin" />
                 <FormInput type="email" name="email" label="Email" />
                 <FormInput type="password" name="password" label="Password" />
                 <SubmitButton />
