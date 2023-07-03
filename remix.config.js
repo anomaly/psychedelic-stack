@@ -17,7 +17,10 @@ module.exports = {
     v2_headers: true,
     v2_routeConvention: true,
   },
-  tailwind: true
+  tailwind: true,
+  serverDependenciesToBundle: [
+    "axios",
+  ]
   // This works out of the box with the Netlify adapter, but you can
   // add your own custom config here if you want to.
   //
