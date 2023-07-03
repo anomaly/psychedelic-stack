@@ -1,12 +1,7 @@
 
-import type {
-  V2_MetaFunction,
-  LoaderFunction,
-  LoaderArgs
-} from "@remix-run/deno";
-import {
-  json
-} from "@remix-run/deno";
+import type { V2_MetaFunction } from "@remix-run/node";
+import { json } from "@remix-run/node";
+import { useLoaderData, Link } from "@remix-run/react";
 
 export function headers({
   loaderHeaders,
@@ -31,43 +26,33 @@ export const meta: V2_MetaFunction = () => {
   ];
 };
 
-export const loader: LoaderFunction = async ({ request }: LoaderArgs) => {
+export async function loader() {
   return json({ message: "Hello World" });
 }
 
-
 export default function Index() {
+
+  const data = useLoaderData<typeof loader>();
+
   return (
     <main>
-      <h1 className="text-2xl">Welcome to Remix</h1>
-      <ul>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/blog"
-            rel="noreferrer noopener"
-          >
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/jokes"
-            rel="noreferrer noopener"
-          >
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/docs"
-            rel="noreferrer noopener"
-          >
-            Remix Docs
-          </a>
-        </li>
+      <h1 className="text-2xl">Authentication</h1>
+      <ul className="list-outside list-disc">
+        <li><Link to="/login">Login</Link></li>
+        <li><Link to="/forgot-password">Forgot Password</Link></li>
+        <li><Link to="/resend-verification">Re-resend verification token</Link></li>
+        <li><Link to="/verify">Verify</Link></li>
+        <li><Link to="/signup">Sign up</Link></li>
+      </ul>
+      <h1 className="text-2xl">OTP</h1>
+      <ul className="list-outside list-disc">
+        <li><Link to="/otp-initiate">Initiate</Link></li>
+        <li><Link to="/otp-verify">Verify</Link></li>
+      </ul>
+      <h1 className="text-2xl">Admin</h1>
+      <ul className="list-outside list-disc">
+        <li><Link to="/admin">Dashboard</Link></li>
+        <li><Link to="/admin/user">Users</Link></li>
       </ul>
     </main>
   );
