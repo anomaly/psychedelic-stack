@@ -73,6 +73,7 @@ export const action: ActionFunction = async ({ request }: ActionArgs) => {
     } = formData.data;
 
     try {
+
         const response: AxiosResponse<Token> = await loginForAuthToken({
             username: email,
             password: password,
@@ -90,6 +91,7 @@ export const action: ActionFunction = async ({ request }: ActionArgs) => {
         // If we require to extract the error message from the response
         const axiosError = error as AxiosError;
         // Nullify the token if there was one
+        console.log(axiosError.response?.data);
         session.set("token", null);
         // We intend to carry this over to the loader
         session.flash("error", "Invalid username or password");
