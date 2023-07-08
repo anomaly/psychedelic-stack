@@ -15,20 +15,17 @@ import {
 } from "@remix-run/react";
 
 import Axios from 'axios';
-import axios from "axios";
-
-import stylesheet from "~/tailwind.css";
 
 import {
   getSession,
 } from "~/session";
 
+import stylesheet from "~/tailwind.css";
 
 // Sets the based URL, note that these API endpoints
 // are called from the Remix server, not the client.
 // TODO: figured out how to set this dynamically
 Axios.defaults.baseURL = 'http://localhost:8888/api/';
-
 
 /**
  * Links the Tailwind stylesheet
@@ -51,9 +48,9 @@ export const meta: V2_MetaFunction = () => {
 
 export const loader: LoaderFunction = async ({ request }: LoaderArgs) => {
 
-  const session = await getSession(
-    request.headers.get("Cookie")
-  );
+  // const session = await getSession(
+  //   request.headers.get("Cookie")
+  // );
 
   /**
    * Add the token before each request if  one is found in the session
@@ -64,10 +61,10 @@ export const loader: LoaderFunction = async ({ request }: LoaderArgs) => {
    * registered multiple times and will cause the interceptors to be called
    * 
    */
-  const token = session.get("token");
-  if (token !== null && token !== undefined) {
-    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-  }
+  // const token = session.get("token");
+  // if (token !== null && token !== undefined) {
+  //   axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+  // }
 
   return {};
 
