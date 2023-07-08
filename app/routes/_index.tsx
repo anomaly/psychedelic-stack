@@ -1,7 +1,21 @@
 
+import { Suspense } from "react";
 import type { V2_MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData, Link } from "@remix-run/react";
+
+import {
+  FontAwesomeIcon
+} from '@fortawesome/react-fontawesome'
+
+import { faEnvelope } from '@fortawesome/pro-solid-svg-icons'
+
+// import {
+//   icon
+// } from '@fortawesome/fontawesome-svg-core/import.macro'
+
+
+// icon({ name: 'user' })
 
 export function headers({
   loaderHeaders,
@@ -36,6 +50,8 @@ export default function Index() {
 
   return (
     <main>
+
+      <FontAwesomeIcon icon={faEnvelope} />
       <h1 className="text-2xl">Authentication</h1>
       <ul className="list-outside list-disc">
         <li><Link to="/login">Login</Link></li>
